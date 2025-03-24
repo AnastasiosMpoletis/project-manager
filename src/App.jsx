@@ -1,7 +1,13 @@
+import SideBar from "./components/Sidebar.jsx";
+import MainComponent from "./components/MainComponent.jsx";
+
 function App() {
   return (
     <>
-      <h1 className="my-8 text-center text-5xl font-bold">Hello World</h1>
+      <div className="flex flex-row">
+        <SideBar />
+        <MainComponent />
+      </div>
     </>
   );
 }
