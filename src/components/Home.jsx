@@ -1,5 +1,6 @@
 import NewProjectButton from "./buttons/NewProjectButton.jsx";
 import logo from '../assets/no-projects.png';
+import { STATES } from "../utils/AppStates.jsx";
 
 export default function Home({ onNewProject }) {
     return (
@@ -9,7 +10,7 @@ export default function Home({ onNewProject }) {
             <p>Select a project or start with a new one</p>
             <NewProjectButton
                 newProjectButtonLabel="Create new project"
-                onNewProject={onNewProject}
+                onNewProject={() => onNewProject(STATES.NEW_PROJECT)}
             />
         </div>
     );

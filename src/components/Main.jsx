@@ -1,21 +1,25 @@
 import Home from './Home.jsx';
 import NewProject from './NewProject.jsx';
+import Tasks from './Tasks.jsx';
 import { STATES } from '../utils/AppStates.jsx';
 
-export default function Main({ projectState, onNewProject, onCloseNewProject, onAddNewProject }) {
+export default function Main({ projectState, project, onProjectStateChange, onAddNewProject }) {
     return (
-        <>
+        <div id="main" className="flex-auto m-auto">
             {projectState === STATES.HOME &&
                 <Home
-                    onNewProject={onNewProject}
+                    onNewProject={onProjectStateChange}
                 />
             }
             {projectState === STATES.NEW_PROJECT &&
                 <NewProject
-                    onCloseNewProject={onCloseNewProject}
+                    onCloseNewProject={onProjectStateChange}
                     onAddNewProject={onAddNewProject}
                 />
             }
-        </>
+            {projectState === STATES.EDIT_TASKS &&
+                <Tasks project={project} />
+            }
+        </div>
     );
 }

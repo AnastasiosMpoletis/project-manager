@@ -7,8 +7,9 @@ import { STATES } from "./utils/AppStates.jsx";
 function App() {
   const [projectState, setProjectState] = useState(STATES.HOME);
   const [projects, setProjects] = useState([]);
+  const [selectedProject, setSelectedProject] = useState();
 
-  function changeProjectState(newState) {
+  function handleProjectStateChange(newState) {
     setProjectState(newState);
   }
 
@@ -34,24 +35,27 @@ function App() {
       return updatedProjects;
     });
 
-    changeProjectState(STATES.HOME);
+    handleProjectStateChange(STATES.HOME);
+  }
+
+  function handleSelectProject(project) {
+    setSelectedProject(project);
   }
 
   return (
     <>
       <div className="flex h-dvh flex-nowrap">
         <SideBar
-          onNewProject={() => changeProjectState(STATES.NEW_PROJECT)}
+          onProjectStateChange={handleProjectStateChange}
           projects={projects}
+          onSelectProject={handleSelectProject}
         />
-        <div id="main" className="flex-auto m-auto">
-          <Main
-            projectState={projectState}
-            onNewProject={() => changeProjectState(STATES.NEW_PROJECT)}
-            onCloseNewProject={() => changeProjectState(STATES.HOME)}
-            onAddNewProject={handleAddNewProject}
-          />
-        </div>
+        <Main
+          projectState={projectState}
+          project={selectedProject}
+          onProjectStateChange={handleProjectStateChange}
+          onAddNewProject={handleAddNewProject}
+        />
       </div>
     </>
   );
