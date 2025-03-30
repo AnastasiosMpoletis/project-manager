@@ -1,7 +1,7 @@
 import NewProjectButton from "./buttons/NewProjectButton.jsx";
 import logo from '../assets/no-projects.png';
 
-export default function Home({ onNewProjectButtonClick }) {
+export default function Home({ onNewProject }) {
     return (
         <div id="home" className="justify-items-center p-10">
             <img src={logo} alt="logo" className="size-20" />
@@ -9,7 +9,7 @@ export default function Home({ onNewProjectButtonClick }) {
             <p>Select a project or start with a new one</p>
             <NewProjectButton
                 newProjectButtonLabel="Create new project"
-                onNewProjectButtonClick={onNewProjectButtonClick}
+                onNewProject={onNewProject}
             />
         </div>
     );

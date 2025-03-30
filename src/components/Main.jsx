@@ -1,17 +1,19 @@
 import Home from './Home.jsx';
 import NewProject from './NewProject.jsx';
+import { STATES } from '../AppStates.jsx';
 
-export default function Main({ projectState, onNewProjectButtonClick, onCloseNewProject }) {
+export default function Main({ projectState, onNewProject, onCloseNewProject, onAddNewProject }) {
     return (
         <>
-            {projectState === "home" &&
+            {projectState === STATES.HOME &&
                 <Home
-                    onNewProjectButtonClick={onNewProjectButtonClick}
+                    onNewProject={onNewProject}
                 />
             }
-            {projectState === "newProject" &&
+            {projectState === STATES.NEW_PROJECT &&
                 <NewProject
                     onCloseNewProject={onCloseNewProject}
+                    onAddNewProject={onAddNewProject}
                 />
             }
         </>
