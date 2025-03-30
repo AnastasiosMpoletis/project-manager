@@ -16,8 +16,8 @@ export default function NewProject({ onCloseNewProject, onAddNewProject }) {
     };
 
     return (
-        <div id="new-project" >
-            <form onSubmit={handleSubmit} className="flex flex-col p-10">
+        <div id="new-project" className="flex-auto m-auto">
+            <form onSubmit={handleSubmit} className="flex flex-col p-10 m-auto">
                 <div className="mb-3 flex justify-end">
                     <input
                         className="px-7 py-1 border-4 rounded-md"

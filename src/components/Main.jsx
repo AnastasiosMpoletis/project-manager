@@ -5,7 +5,7 @@ import { STATES } from '../utils/AppStates.jsx';
 
 export default function Main({ projectState, project, onProjectStateChange, onAddNewProject }) {
     return (
-        <div id="main" className="flex-auto m-auto">
+        <>
             {projectState === STATES.HOME &&
                 <Home
                     onNewProject={onProjectStateChange}
@@ -20,6 +20,6 @@ export default function Main({ projectState, project, onProjectStateChange, onAd
             {projectState === STATES.EDIT_TASKS &&
                 <Tasks project={project} />
             }
-        </div>
+        </>
     );
 }

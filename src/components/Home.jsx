@@ -4,10 +4,10 @@ import { STATES } from "../utils/AppStates.jsx";
 
 export default function Home({ onNewProject }) {
     return (
-        <div id="home" className="justify-items-center p-10">
-            <img src={logo} alt="logo" className="size-20" />
-            <h2 className="my-8 font-bold">No Project Selected</h2>
-            <p>Select a project or start with a new one</p>
+        <div id="home" className="flex-auto justify-items-center m-auto">
+            <img src={logo} alt="logo" className="size-36" />
+            <h1 className="my-8 font-bold text-3xl text-stone-700">No Project Selected</h1>
+            <h2>Select a project or start with a new one</h2>
             <NewProjectButton
                 newProjectButtonLabel="Create new project"
                 onNewProject={() => onNewProject(STATES.NEW_PROJECT)}
