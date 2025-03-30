@@ -14,11 +14,11 @@ function App() {
 
   return (
     <>
-      <div className="flex flex-row">
+      <div className="flex h-dvh flex-nowrap">
         <SideBar
           onNewProjectButtonClick={() => handleProjectState("newProject")}
         />
-        <div id="main" className="flex-auto justify-items-center mt-14">
+        <div id="main" className="flex-auto m-auto">
           <Main
             projectState={projectState}
             onNewProjectButtonClick={() => handleProjectState("newProject")}
