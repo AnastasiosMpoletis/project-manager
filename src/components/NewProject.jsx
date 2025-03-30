@@ -1,9 +1,11 @@
-export default function NewProject() {
+export default function NewProject({ onCloseNewProject }) {
     return (
         <div id="new-project" className="justify-items-center">
             <dialog open>
-                <button>Cancel</button>
-                <button>Save</button>
+                <form method="dialog" onSubmit={onCloseNewProject}>
+                    <button>Cancel</button>
+                    <button>Save</button>
+                </form>
             </dialog>
         </div>
     );

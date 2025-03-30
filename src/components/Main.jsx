@@ -1,12 +1,19 @@
 import Home from './Home.jsx';
 import NewProject from './NewProject.jsx';
 
-export default function Main() {
-    let showNumber = 1;
+export default function Main({ projectState, onNewProjectButtonClick, onCloseNewProject }) {
     return (
         <>
-            {showNumber === 1 && <Home />}
-            {showNumber === 2 && <NewProject />}
+            {projectState === "home" &&
+                <Home
+                    onNewProjectButtonClick={onNewProjectButtonClick}
+                />
+            }
+            {projectState === "newProject" &&
+                <NewProject
+                    onCloseNewProject={onCloseNewProject}
+                />
+            }
         </>
     );
 }
