@@ -1,6 +1,6 @@
 import Home from './Home.jsx';
 import NewProject from './NewProject.jsx';
-import { STATES } from '../AppStates.jsx';
+import { STATES } from '../utils/AppStates.jsx';
 
 export default function Main({ projectState, onNewProject, onCloseNewProject, onAddNewProject }) {
     return (

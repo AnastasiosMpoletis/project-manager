@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import SideBar from "./components/Sidebar.jsx";
 import Main from "./components/Main.jsx";
-import { STATES } from "./AppStates.jsx";
+import { STATES } from "./utils/AppStates.jsx";
 
 function App() {
   const [projectState, setProjectState] = useState(STATES.HOME);
@@ -42,6 +42,7 @@ function App() {
       <div className="flex h-dvh flex-nowrap">
         <SideBar
           onNewProject={() => changeProjectState(STATES.NEW_PROJECT)}
+          projects={projects}
         />
         <div id="main" className="flex-auto m-auto">
           <Main
