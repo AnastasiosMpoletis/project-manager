@@ -20,13 +20,14 @@ export default function NewProject({ onCloseNewProject, onAddNewProject }) {
             <form onSubmit={handleSubmit} className="flex flex-col p-10 m-auto">
                 <div className="mb-3 flex justify-end">
                     <input
-                        className="px-7 py-1 border-4 rounded-md"
+                        className="px-7 py-1 border-2 rounded-md cursor-pointer hover:bg-stone-200 hover:border-stone-400"
                         type="button"
                         value="Cancel"
                         onClick={() => onCloseNewProject(STATES.HOME)}
                     />
                     <input
-                        className="px-8 py-1 mx-5 rounded-md bg-stone-500 text-slate-100"
+                        className="px-8 py-1 mx-5 rounded-md border-2 border-stone-300 bg-stone-500 text-slate-100 cursor-pointer 
+                        hover:bg-stone-400 hover:border-stone-500"
                         type="submit"
                         value="Save"
                     />

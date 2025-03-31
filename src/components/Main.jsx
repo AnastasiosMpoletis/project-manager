@@ -3,7 +3,7 @@ import NewProject from './NewProject.jsx';
 import Tasks from './Tasks.jsx';
 import { STATES } from '../utils/AppStates.jsx';
 
-export default function Main({ projectState, project, onProjectStateChange, onAddNewProject }) {
+export default function Main({ projectState, project, onProjectStateChange, onAddNewProject, onDeleteSelectedProject }) {
     return (
         <>
             {projectState === STATES.HOME &&
@@ -18,7 +18,10 @@ export default function Main({ projectState, project, onProjectStateChange, onAd
                 />
             }
             {projectState === STATES.EDIT_TASKS &&
-                <Tasks project={project} />
+                <Tasks
+                    project={project}
+                    onDeleteSelectedProject={onDeleteSelectedProject}
+                />
             }
         </>
     );

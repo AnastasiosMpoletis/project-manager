@@ -1,24 +1,25 @@
-export default function Tasks({ project }) {
+export default function Tasks({ project, onDeleteSelectedProject }) {
 
     const formattedDate = new Date(project.projectDueDate).toLocaleDateString("en-US", { month: "short", day: "2-digit", year: "numeric", });
 
     return (
         <div id="tasks" className="flex-auto">
             {console.log("Selected Project: " + JSON.stringify(project))}
-            <form onSubmit={() => {}} className="flex flex-col p-10">
+            <div className="flex flex-col p-10">
                 <div className="flex place-content-between items-center mt-4">
                     <h1 className="flex-auto font-bold text-3xl text-stone-700">{project.projectTitle}</h1>
-                    <input
-                        className="flex-none px-7 py-1 border-4 rounded-md"
-                        type="submit"
-                        value="Delete"
-                    />
+                    <button
+                        className="flex-none px-7 py-1 border-2 rounded-md cursor-pointer hover:bg-stone-200 hover:border-stone-400"
+                        onClick={onDeleteSelectedProject}
+                    >Delete</button>
                 </div>
                 <h2 className="text-slate-500 mt-2">{formattedDate}</h2>
                 <p className="mt-4">{project.projectDescription}</p>
                 <hr className="border-2 rounded-lg mt-4" />
                 <h1 className="font-bold text-2xl mt-4 text-stone-700">Tasks</h1>
-                {/* TODO ANBOL add task functionality */}
+                <div id="tasks-controller">
+
+                </div>
 
 
                 {/*
@@ -50,7 +51,7 @@ export default function Tasks({ project }) {
                     // required
                     />
                 </label> */}
-            </form>
+            </div>
         </div>
     );
 }
