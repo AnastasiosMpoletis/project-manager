@@ -35,21 +35,34 @@ export default function Tasks({ selectedProject, onDeleteSelectedProject, onAddN
                             ref={taskRef}
                             type="text"
                             name="taskField"
-                            className="mb-3 w-[60%] p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600"
+                            className="my-3 w-[60%] p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600"
                         />
                         <button
                             className="ml-9 px-7 py-1 border-2 rounded-md cursor-pointer hover:border-stone-400"
                             onClick={addTaskToSelectedProject}
                         >+ Add Task</button>
                     </div>
+                    {selectedProject.projectTasks.length < 1 && <h3>This project does not have any tasks yet.</h3>}
                     <ul>
-                        {selectedProject.projectTasks.map((task, index) => {
-                            return <li key={index}>{task.taskTitle}</li>
-                        })}
+                        {
+                            selectedProject.projectTasks.map((task, index) => {
+                                return (
+                                    <li
+                                        key={index}
+                                        className="bg-stone-100 p-3 my-3 w-auto border-2 border-transparent rounded-md hover:border-stone-200">
+                                        <div className="flex place-content-between">
+                                            <label>
+                                                {task.taskTitle}
+                                            </label>
+                                            <button className="mr-10 hover:text-red-600">Clear</button>
+                                        </div>
+                                    </li>);
+                            })
+                        }
                     </ul>
 
                 </div>
             </div>
-        </div>
+        </div >
     );
 }

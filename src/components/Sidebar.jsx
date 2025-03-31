@@ -5,19 +5,19 @@ import { useState } from "react";
 export default function SideBar({ onProjectStateChange, projects, onSelectProject }) {
 
     /**
-     * We need it to deselect the selected project when we click the SideBar NewProjectButton.
+     * We need it to deselect the selected project when we click the SideBar NewProjectButton, delete a project etc.
      */
-    const [selectedProjectIndex, setSelectedProjectIndex] = useState();
+    const [selectedProjectId, setSelectedProjectId] = useState();
 
-    function onProjectSelected(index, project) {
+    function onProjectSelected(selectedProject) {
         onProjectStateChange(STATES.EDIT_TASKS);
-        onSelectProject(project);
-        setSelectedProjectIndex(index);
+        onSelectProject(selectedProject);
+        setSelectedProjectId(selectedProject.projectId);
     }
 
     function onNewProject() {
         onProjectStateChange(STATES.NEW_PROJECT);
-        setSelectedProjectIndex(undefined); // reset selectedProjectIndex
+        setSelectedProjectId(undefined); // reset selectedProjectId
     }
 
     return (
@@ -35,15 +35,15 @@ export default function SideBar({ onProjectStateChange, projects, onSelectProjec
                     // add a background to the selected project
                     const projectListStyle = `
                     overflow-hidden text-ellipsis whitespace-nowrap mt-3 p-2 rounded-md hover:bg-stone-900 cursor-pointer 
-                    ${selectedProjectIndex === index && 'bg-stone-900'}
+                    ${selectedProjectId === project.projectId && 'bg-stone-900'}
                     `;
 
                     return (
                         <li
-                            key={index}
+                            key={project.projectId}
                             className={projectListStyle}
                             title={project.projectTitle}
-                            onClick={() => onProjectSelected(index, project)}
+                            onClick={() => onProjectSelected(project)}
                         >
                             {project.projectTitle}
                         </li>
