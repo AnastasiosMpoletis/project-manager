@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-export default function Tasks({ selectedProject, onDeleteSelectedProject, onAddNewTaskToSelectedProject }) {
+export default function Tasks({ selectedProject, onDeleteSelectedProject, onAddNewTaskToSelectedProject, onDeleteTask }) {
 
     const taskRef = useRef();
 
@@ -44,6 +44,7 @@ export default function Tasks({ selectedProject, onDeleteSelectedProject, onAddN
                     </div>
                     {selectedProject.projectTasks.length < 1 && <h3>This project does not have any tasks yet.</h3>}
                     <ul>
+                        {/* TODO ANBOL add scroll bar if there are a lot of tasks */}
                         {
                             selectedProject.projectTasks.map((task, index) => {
                                 return (
@@ -54,7 +55,10 @@ export default function Tasks({ selectedProject, onDeleteSelectedProject, onAddN
                                             <label>
                                                 {task.taskTitle}
                                             </label>
-                                            <button className="mr-10 hover:text-red-600">Clear</button>
+                                            <button
+                                                onClick={() => onDeleteTask(task.taskId)}
+                                                className="mr-10 hover:text-red-600"
+                                            >Clear</button>
                                         </div>
                                     </li>);
                             })

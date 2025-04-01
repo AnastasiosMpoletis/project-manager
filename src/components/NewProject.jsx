@@ -47,8 +47,7 @@ export default function NewProject({ onCloseNewProject, onAddNewProject }) {
                         type="text"
                         name="descriptionField"
                         className={INPUT_STYLE}
-                        //TODO ANBOL remove comment later
-                        // required
+                        required
                     />
                 </label>
                 <label className={LABEL_STYLE}>Due date
@@ -58,8 +57,7 @@ export default function NewProject({ onCloseNewProject, onAddNewProject }) {
                         name="dueDateField"
                         placeholder="dd/mm/yyyy"
                         className={INPUT_STYLE}
-                        //TODO ANBOL remove comment later
-                        // required
+                        required
                     />
                 </label>
             </form>

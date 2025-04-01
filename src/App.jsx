@@ -126,9 +126,33 @@ function App() {
     const updatedProjects = [...projects];
     updatedProjects.forEach(p => {
       if (p.projectId === project.projectId) {
-        p.projectTasks = [newTask, ... p.projectTasks]; // add new task on top
+        p.projectTasks = [newTask, ...p.projectTasks]; // add new task on top
       }
     });
+    setProjects(updatedProjects);
+  }
+
+  function handleDeleteTaskFromSelectedProject(taskId) {
+    return handleDeleteTaskFromProject(selectedProject, taskId);
+  }
+
+  /**
+   * Deletes a task from a project.
+   * 
+   * @param {*} project project to delete the task
+   * @param {*} taskId task to delete
+   */
+  function handleDeleteTaskFromProject(project, taskId) {
+    //TODO ANBOL add a global message on save/delete
+    const updatedProjects = [...projects];
+    let updatedTasks = [];
+    updatedProjects.forEach(p => {
+      if (p.projectId === project.projectId) {
+        updatedTasks = [...p.projectTasks];
+        updatedTasks = updatedTasks.filter(t => t.taskId != taskId);
+      }
+      p.projectTasks = updatedTasks;
+    })
     setProjects(updatedProjects);
   }
 
@@ -147,6 +171,7 @@ function App() {
           onAddNewProject={handleAddNewProject}
           onDeleteSelectedProject={handleDeleteSelectedProject}
           onAddNewTaskToSelectedProject={handleAddNewTaskToSelectedProject}
+          onDeleteTask={handleDeleteTaskFromSelectedProject}
         />
       </div>
     </>

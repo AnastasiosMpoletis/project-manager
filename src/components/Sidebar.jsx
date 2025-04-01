@@ -39,6 +39,7 @@ export default function SideBar({ onProjectStateChange, projects, onSelectProjec
                     `;
 
                     return (
+                        // TODO ANBOL add scroll bar if there are a lot of projects
                         <li
                             key={project.projectId}
                             className={projectListStyle}
