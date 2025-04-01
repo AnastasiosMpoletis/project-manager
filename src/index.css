@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    ::-webkit-scrollbar-thumb {
+        @apply bg-transparent shadow-md
+    }
+
+    ::-webkit-scrollbar {
+        @apply w-1 bg-transparent
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply rounded-md bg-stone-200
+        /*color trackbar*/
+    }
+}

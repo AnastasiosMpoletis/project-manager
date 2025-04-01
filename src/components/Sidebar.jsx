@@ -29,28 +29,27 @@ export default function SideBar({ onProjectStateChange, projects, onSelectProjec
                 onNewProject={onNewProject}
             />
 
-            {/* Display projects */}
-            <ul className="mt-7 list-none">
-                {projects.map((project, index) => {
-                    // add a background to the selected project
-                    const projectListStyle = `
-                    overflow-hidden text-ellipsis whitespace-nowrap mt-3 p-2 rounded-md hover:bg-stone-900 cursor-pointer 
-                    ${selectedProjectId === project.projectId && 'bg-stone-900'}
-                    `;
+            <div id="sidebar-projects" className="my-2 h-[78vh] overflow-y-auto">
+                {/* Display projects */}
+                <ul className="list-none">
+                    {projects.map((project) => {
+                        // add a background to the selected project
+                        const projectListStyle = `overflow-hidden text-ellipsis whitespace-nowrap mb-3 mr-2 p-2 rounded-md hover:bg-stone-900 cursor-pointer 
+                            ${selectedProjectId === project.projectId && 'bg-stone-900'}`;
 
-                    return (
-                        // TODO ANBOL add scroll bar if there are a lot of projects
-                        <li
-                            key={project.projectId}
-                            className={projectListStyle}
-                            title={project.projectTitle}
-                            onClick={() => onProjectSelected(project)}
-                        >
-                            {project.projectTitle}
-                        </li>
-                    );
-                })}
-            </ul>
-        </div >
+                        return (
+                            <li
+                                key={project.projectId}
+                                className={projectListStyle}
+                                title={project.projectTitle}
+                                onClick={() => onProjectSelected(project)}
+                            >
+                                {project.projectTitle}
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>
+        </div>
     );
 }

@@ -5,6 +5,7 @@ import { STATES } from "../utils/AppStates";
 export default function NewProject({ onCloseNewProject, onAddNewProject }) {
     const LABEL_STYLE = "font-bold uppercase text-stone-500";
     const INPUT_STYLE = "mb-3 w-full p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600";
+    const TEXTAREA_STYLE = INPUT_STYLE + " max-h-[60vh] min-h-[10vh]";
 
     const titleRef = useRef();
     const descriptionRef = useRef();
@@ -17,7 +18,7 @@ export default function NewProject({ onCloseNewProject, onAddNewProject }) {
 
     return (
         <div id="new-project" className="flex-auto m-auto">
-            <form onSubmit={handleSubmit} className="flex flex-col p-10 m-auto">
+            <form onSubmit={handleSubmit} className="flex flex-col p-10">
                 <div className="mb-3 flex justify-end">
                     <input
                         className="px-7 py-1 border-2 rounded-md cursor-pointer hover:bg-stone-200 hover:border-stone-400"
@@ -46,7 +47,7 @@ export default function NewProject({ onCloseNewProject, onAddNewProject }) {
                         ref={descriptionRef}
                         type="text"
                         name="descriptionField"
-                        className={INPUT_STYLE}
+                        className={TEXTAREA_STYLE}
                         required
                     />
                 </label>

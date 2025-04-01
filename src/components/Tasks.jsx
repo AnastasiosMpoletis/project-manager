@@ -48,9 +48,9 @@ export default function Tasks({ selectedProject, onDeleteSelectedProject, onAddN
                     </div>
                 </div>
 
-                <div id="task-list" className="h-[70vh] overflow-y-auto">
+                <div id="task-list" className="h-[70vh] overflow-y-auto overflow-x-hidden">
                     {selectedProject.projectTasks.length < 1 && <h3>This project does not have any tasks yet.</h3>}
-                    <ul>
+                    <ul className="list-none">
                         {/* Prevents animation on first load */}
                         <AnimatePresence initial={false}>
                             {
