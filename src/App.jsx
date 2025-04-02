@@ -5,12 +5,6 @@ import Main from "./components/Main.jsx";
 import { STATES } from "./utils/AppStates.jsx";
 
 function App() {
-  /**
-   * TODO ANBOL:
-   * 3. Update README.
-   * 
-   * After that, create a new branch for Max's implementation (like in investment project)
-   */
   const [appState, setAppState] = useState(STATES.HOME);
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState();
