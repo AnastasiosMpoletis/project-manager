@@ -2,7 +2,7 @@ import NewProjectButton from "./buttons/NewProjectButton.jsx";
 import logo from '../assets/no-projects.png';
 import { STATES } from "../utils/AppStates.jsx";
 
-export default function Home({ onNewProject }) {
+export default function Home({ onAddNewProject }) {
     return (
         <div id="home" className="flex-auto justify-items-center m-auto">
             <img src={logo} alt="logo" className="size-36" />
@@ -10,7 +10,7 @@ export default function Home({ onNewProject }) {
             <h2>Select a project or start with a new one</h2>
             <NewProjectButton
                 newProjectButtonLabel="Create new project"
-                onNewProject={() => onNewProject(STATES.NEW_PROJECT)}
+                onAddNewProject={() => onAddNewProject(STATES.NEW_PROJECT)}
             />
         </div>
     );

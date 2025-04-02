@@ -2,7 +2,7 @@ import NewProjectButton from "./buttons/NewProjectButton.jsx";
 import { STATES } from "../utils/AppStates.jsx";
 import { useState } from "react";
 
-export default function SideBar({ onProjectStateChange, projects, onSelectProject }) {
+export default function SideBar({ onAppStateChange, projects, onSelectProject }) {
 
     /**
      * We need it to deselect the selected project when we click the SideBar NewProjectButton, delete a project etc.
@@ -10,13 +10,13 @@ export default function SideBar({ onProjectStateChange, projects, onSelectProjec
     const [selectedProjectId, setSelectedProjectId] = useState();
 
     function onProjectSelected(selectedProject) {
-        onProjectStateChange(STATES.EDIT_TASKS);
+        onAppStateChange(STATES.EDIT_TASKS);
         onSelectProject(selectedProject);
         setSelectedProjectId(selectedProject.projectId);
     }
 
-    function onNewProject() {
-        onProjectStateChange(STATES.NEW_PROJECT);
+    function onAddNewProject() {
+        onAppStateChange(STATES.NEW_PROJECT);
         setSelectedProjectId(undefined); // reset selectedProjectId
     }
 
@@ -26,7 +26,7 @@ export default function SideBar({ onProjectStateChange, projects, onSelectProjec
 
             <NewProjectButton
                 newProjectButtonLabel="+ Add Project"
-                onNewProject={onNewProject}
+                onAddNewProject={onAddNewProject}
             />
 
             <div id="sidebar-projects" className="my-2 h-[78vh] overflow-y-auto">

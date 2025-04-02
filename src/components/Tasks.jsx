@@ -9,7 +9,7 @@ export default function Tasks({ selectedProject, onDeleteSelectedProject, onAddN
 
     function addTaskToSelectedProject() {
         const taskRefValue = taskRef.current.value;
-        // check if empty of whitespace task
+        // check if empty or whitespace task
         if (taskRefValue.trim().length > 0) {
             onAddNewTaskToSelectedProject(taskRefValue.trim());
         }
@@ -79,6 +79,7 @@ export default function Tasks({ selectedProject, onDeleteSelectedProject, onAddN
                         </AnimatePresence>
                     </ul>
                 </div>
+
             </div>
         </div >
     );
