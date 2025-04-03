@@ -34,6 +34,7 @@ function App() {
 
       return {
         ...previousState,
+        selectedProjectId: undefined, // navigate to no project screen after saving a new project
         projects: [...previousState.projects, newProject]
       };
     });
